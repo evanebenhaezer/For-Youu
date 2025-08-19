@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>For My Love 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      overflow-x: hidden;
+      text-align: center;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .container {
+      margin-top: 40px;
+    }
+
+    .btn {
+      background: #ff4d6d;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      background: #ff1e4d;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .letter, .poem, .question, .final-message {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 15px;
+      background: white;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      line-height: 1.8;
+      font-size: 1.2rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideUp 1.5s forwards;
+    }
+
+    .poem {
+      background: #fff0f5;
+      font-style: italic;
+    }
+
+    .question {
+      background: #f0fff0;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    .hearts {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: 0;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: floatUp 4s linear infinite;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    @keyframes slideUp {
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes floatUp {
+      0% {transform: translateY(0) scale(1) rotate(45deg); opacity: 1;}
+      100% {transform: translateY(-600px) scale(1.5) rotate(45deg); opacity: 0;}
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💌 A Special Letter For You 💌</h1>
+
+  <div class="container">
+    <button id="openBtn" class="btn">Open</button>
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="NothingsGonnaChangeMyLoveForYou.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Surat -->
+  <div id="letter" class="letter hidden">
+ haiii sayanggggg , eummm mungkin km bakal mikir aku prikkk 😭 yaudalaa yaa, sekali skeali aku pertaruhinn, maaf yaa sayanggg aku sebelumnya blm bisa jadi pacar yang sempurna di mata kamuuu, aku minta maaf yaaaa, aku pinign berusaha jadi pacar yang lebih baikk, ayng bisa lebih ngertiin kamuu dan yang pasti ga bikin perasaan kamu terlukaa hikkk, setealh kita putusss aku banyak emrneung gimana caranya memperbvaiki diri akuu, akuu nyobaa ikut semianrr pakai planner dan akuu seakrang jadi suka monologg jadiii aku ga kesulitan nugnkapin apa yang aku rasainn, aku gamauuu bikin kamu lonelyyy hueeeeeee, aku berharapppppp kita bisaaa balikann lagiii tapi bukan seperti duluuu, tapii lebihhh kuatttt lebihhh baikkk dan lebih meneyrtakan tuhannn dalam hubungan kitaaaa, di dalam lubuk ahati aku ayng paling dalammm akuuuu sayangggg banget sama kamuuu, aku gamau kehilangan kamuuu, dan aku ga relaaaa hueeeee apdahal ngomongnya dah relaaaa hiksss, tapi jujur aku gatau perasaan kamu gmnnnn seakrang hikkk aku ebnrean pinign balkikan sama kmauu, aku pinign kitas ama sama perbaikin hubungan iniii, aku yakinnn kita sangat mungkin jadi lebih baik kedepaqnnyaa emg benr masa lalu gabisa diubahhh tapi masa depann bisa diubahhhh
+</div>
+
+  <!-- Puisi -->
+  <div id="poem" class="poem hidden">
+    🌹 Roses are red, violets are blue,  
+    every little moment feels brighter with you.  
+    Your smile is the sunrise that starts off my day,  
+    and your voice is the melody I wish would stay. 🌹
+  </div>
+
+  <!-- Pertanyaan -->
+  <div id="question" class="question hidden">
+    💖 Will you be my girlfriend again? 💖
+  </div>
+
+  <!-- Tombol Yes/No -->
+  <div class="container hidden" id="choiceButtons">
+    <button id="yesBtn" class="btn">Yes 💖</button>
+    <button id="noBtn" class="btn">No 💔</button>
+  </div>
+
+  <!-- Pesan Akhir -->
+  <div id="finalMessage" class="final-message hidden">
+    i miss you so muchh sayanggggg hueeeeeeee 😭😭😭 ayuuu kita ketemuuuuu 💖
+  </div>
+
+  <div class="hearts" id="heartsContainer"></div>
+
+  <script>
+    const openBtn = document.getElementById("openBtn");
+    const bgMusic = document.getElementById("bgMusic");
+    const letter = document.getElementById("letter");
+    const poem = document.getElementById("poem");
+    const question = document.getElementById("question");
+    const choiceButtons = document.getElementById("choiceButtons");
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const finalMessage = document.getElementById("finalMessage");
+    const heartsContainer = document.getElementById("heartsContainer");
+
+    // Klik tombol Open
+    openBtn.addEventListener("click", () => {
+      bgMusic.play();
+      openBtn.classList.add("hidden");
+
+      setTimeout(() => { letter.classList.remove("hidden"); }, 500);
+      setTimeout(() => { poem.classList.remove("hidden"); }, 2500);
+      setTimeout(() => { question.classList.remove("hidden"); }, 4000);
+      setTimeout(() => { choiceButtons.classList.remove("hidden"); }, 5500);
+    });
+
+    // Buat hati
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 4000);
+    }
+
+    // Tombol Yes
+    yesBtn.addEventListener("click", () => {
+      finalMessage.classList.remove("hidden");
+      setInterval(createHeart, 300);
+    });
+
+    // Tombol No
+    noBtn.addEventListener("click", () => {
+      noBtn.remove();
+      setInterval(createHeart, 300);
+    });
+  </script>
+</body>
+</html>
