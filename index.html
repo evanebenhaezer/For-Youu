@@ -4,48 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>For My Love 💖</title>
-
-  <!-- ✅ Gunakan font online biar sama di semua device -->
-  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
-
   <style>
-    /* CSS reset supaya tampilan konsisten */
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Comic Neue', cursive; /* Sama persis di HP & laptop */
+      font-family: 'Comic Sans MS', cursive, sans-serif;
       background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      overflow-x: hidden;
       text-align: center;
       color: #333;
-      overflow-x: hidden;
-      padding: 15px;
     }
 
     h1 {
       font-size: 2.5rem;
-      margin: 20px 0;
+      margin-top: 20px;
       animation: fadeIn 2s ease-in-out;
     }
 
     .container {
-      margin: 25px 0;
+      margin-top: 40px;
     }
 
     .btn {
       background: #ff4d6d;
       border: none;
-      padding: 12px 25px;
-      font-size: 1.1rem;
+      padding: 15px 30px;
+      font-size: 1.2rem;
       color: white;
       border-radius: 30px;
       cursor: pointer;
       transition: 0.3s;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      font-family: 'Comic Neue', cursive;
     }
 
     .btn:hover {
@@ -53,21 +42,22 @@
       background: #ff1e4d;
     }
 
-    .hidden { display: none; }
+    .hidden {
+      display: none;
+    }
 
     .letter, .poem, .question, .final-message {
       max-width: 700px;
-      margin: 20px auto;
-      padding: 18px;
+      margin: 40px auto;
+      padding: 20px;
       border-radius: 15px;
       background: white;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-      line-height: 1.7;
-      font-size: 1.1rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      line-height: 1.8;
+      font-size: 1.2rem;
       opacity: 0;
       transform: translateY(30px);
       animation: slideUp 1.5s forwards;
-      font-family: 'Comic Neue', cursive;
     }
 
     .poem {
@@ -78,7 +68,7 @@
     .question {
       background: #f0fff0;
       font-weight: bold;
-      font-size: 1.25rem;
+      font-size: 1.3rem;
     }
 
     .hearts {
@@ -107,10 +97,15 @@
       background: red;
       border-radius: 50%;
     }
-    .heart::before { top: -10px; left: 0; }
-    .heart::after { left: -10px; top: 0; }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
 
-    /* Animations */
     @keyframes fadeIn {
       from {opacity: 0;}
       to {opacity: 1;}
@@ -122,13 +117,6 @@
       0% {transform: translateY(0) scale(1) rotate(45deg); opacity: 1;}
       100% {transform: translateY(-600px) scale(1.5) rotate(45deg); opacity: 0;}
     }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      h1 { font-size: 1.8rem; }
-      .letter, .poem, .question, .final-message { font-size: 1rem; padding: 15px; }
-      .btn { font-size: 1rem; padding: 10px 20px; }
-    }
   </style>
 </head>
 <body>
@@ -139,21 +127,20 @@
     <button id="openBtn" class="btn">Open</button>
   </div>
 
-  <!-- ✅ Pastikan nama file mp3 benar dan ada di folder yg sama -->
-  <audio id="bgMusic" loop preload="auto">
+  <audio id="bgMusic" loop>
     <source src="NothingsGonnaChangeMyLoveForYou.mp3" type="audio/mpeg">
   </audio>
 
   <!-- Surat -->
   <div id="letter" class="letter hidden">
-    haiii sayanggggg , eummm mungkin km bakal mikir aku prikkk 😭 yaudalaa yaa, sekali skeali aku pertaruhinn, maaf yaa sayanggg aku sebelumnya blm bisa jadi pacar yang sempurna di mata kamuuu, aku minta maaf yaaaa, aku pinign berusaha jadi pacar yang lebih baikk, ayng bisa lebih ngertiin kamuu dan yang pasti ga bikin perasaan kamu terlukaa hikkk, setealh kita putusss aku banyak emrneung gimana caranya memperbvaiki diri akuu, akuu nyobaa ikut semianrr pakai planner dan akuu seakrang jadi suka monologg jadiii aku ga kesulitan nugnkapin apa yang aku rasainn, aku gamauuu bikin kamu lonelyyy hueeeeeee, aku berharapppppp kita bisaaa balikann lagiii tapi bukan seperti duluuu, tapii lebihhh kuatttt lebihhh baikkk dan lebih meneyrtakan tuhannn dalam hubungan kitaaaa, di dalam lubuk ahati aku ayng paling dalammm akuuuu sayangggg banget sama kamuuu, aku gamau kehilangan kamuuu, dan aku ga relaaaa hueeeee apdahal ngomongnya dah relaaaa hiksss, tapi jujur aku gatau perasaan kamu gmnnnn seakrang hikkk aku ebnrean pinign balkikan sama kmauu, aku pinign kitas ama sama perbaikin hubungan iniii, aku yakinnn kita sangat mungkin jadi lebih baik kedepaqnnyaa emg benr masa lalu gabisa diubahhh tapi masa depann bisa diubahhhh
-  </div>
+haiii sayanggggg , eummm mungkin km bakal mikir aku prikkk 😭 yaudalaa yaa, sekali skeali aku pertaruhinn, maaf yaa sayanggg aku sebelumnya blm bisa jadi pacar yang sempurna di mata kamuuu, aku minta maaf yaaaa, aku pinign berusaha jadi pacar yang lebih baikk, ayng bisa lebih ngertiin kamuu dan yang pasti ga bikin perasaan kamu terlukaa hikkk, setealh kita putusss aku banyak emrneung gimana caranya memperbvaiki diri akuu, akuu nyobaa ikut semianrr pakai planner dan akuu seakrang jadi suka monologg jadiii aku ga kesulitan nugnkapin apa yang aku rasainn, aku gamauuu bikin kamu lonelyyy hueeeeeee, aku berharapppppp kita bisaaa balikann lagiii tapi bukan seperti duluuu, tapii lebihhh kuatttt lebihhh baikkk dan lebih meneyrtakan tuhannn dalam hubungan kitaaaa, di dalam lubuk ahati aku ayng paling dalammm akuuuu sayangggg banget sama kamuuu, aku gamau kehilangan kamuuu, dan aku ga relaaaa hueeeee apdahal ngomongnya dah relaaaa hiksss, tapi jujur aku gatau perasaan kamu gmnnnn seakrang hikkk aku ebnrean pinign balkikan sama kmauu, aku pinign kitas ama sama perbaikin hubungan iniii, aku yakinnn kita sangat mungkin jadi lebih baik kedepaqnnyaa emg benr masa lalu gabisa diubahhh tapi masa depann bisa diubahhhh
+</div>
 
   <!-- Puisi -->
   <div id="poem" class="poem hidden">
-    🌹 Roses are red, violets are blue,<br>
-    every little moment feels brighter with you.<br>
-    Your smile is the sunrise that starts off my day,<br>
+    🌹 Roses are red, violets are blue,  
+    every little moment feels brighter with you.  
+    Your smile is the sunrise that starts off my day,  
     and your voice is the melody I wish would stay. 🌹
   </div>
 
